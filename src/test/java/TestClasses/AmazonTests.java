@@ -1,12 +1,9 @@
 package TestClasses;
 
 import basePackage.BaseClass;
-import basePackage.DriverInit;
 import org.testng.annotations.Test;
 import pages.AmazonHomePage;
 import uitlities.UtilityClass;
-
-import java.io.IOException;
 
 public class AmazonTests extends BaseClass {
 
@@ -25,7 +22,7 @@ public class AmazonTests extends BaseClass {
     public void validateDropDownOptions()  {
         AmazonHomePage ah = new AmazonHomePage();
         ah.selectCategory("search-alias=stripbooks");
-        uc.takeScreenshot("./phones.png");
+        uc.takeScreenshot("src/resources/screenshots/amazonhome.png");
     }
 
     @Test(priority = 3)
