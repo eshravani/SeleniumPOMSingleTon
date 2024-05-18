@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <parameter name="browser" value="chrome" />
+    <test name="AmazonTests">
+        <classes>
+            <class name="TestClasses.AmazonTests" />
+        </classes>
+    </test>
+</suite>
