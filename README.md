@@ -15,14 +15,14 @@ This project is a basic automation framework for Amazon’s website using the Se
 - **Jenkins Integration**: Continuous Integration setup for automated test execution on code commits.
 
 ## Prerequisites
-Java 17
-Maven
+- Java 17
+- Maven
 TestNG (plugin required if running tests in an IDE)
 Setup Instructions
 1. Clone the Repository
 bash
 Copy code
-git clone https://github.com/yourusername/amazon-automation.git
+git clone (https://github.com/eshravani/SeleniumPOMSingleTon.git)
 2. Navigate to Project Directory
 bash
 Copy code
