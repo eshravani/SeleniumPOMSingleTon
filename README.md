@@ -20,7 +20,7 @@ Setup Instructions
 1. Clone the Repository
 bash
 Copy code
-git clone https://github.com/eshravani/SeleniumPOMSingleTon.git
+git clone [https://github.com/eshravani/SeleniumPOMSingleTon.git](https://github.com/eshravani/SeleniumPOMSingleTon.git)
 2. Navigate to Project Directory
 bash
 Copy code
