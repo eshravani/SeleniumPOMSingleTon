@@ -17,7 +17,7 @@ This project is a basic automation framework for Amazon’s website using the Se
 ## Prerequisites
 - Java 17
 - Maven
-TestNG (plugin required if running tests in an IDE)
+- TestNG (plugin required if running tests in an IDE)
 Setup Instructions
 1. Clone the Repository
 bash
