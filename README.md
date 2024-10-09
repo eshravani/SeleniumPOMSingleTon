@@ -1,4 +1,4 @@
-#Amazon Automation Project
+Amazon Automation Project
 This project is a basic automation framework for Amazon’s website using the Selenium Page Object Model (POM) with a singleton design pattern. The framework supports test case execution for various functionalities such as retrieving the second-highest price of products, extracting options from dropdown menus, and identifying broken links. It’s designed with Maven as the build tool and uses TestNG for configuration and test execution.
 
 Features
