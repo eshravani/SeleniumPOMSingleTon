@@ -1,18 +1,20 @@
-Amazon Automation Project
+# Selenium Page Object Model SIngleTon Design pattern
+
 This project is a basic automation framework for Amazon’s website using the Selenium Page Object Model (POM) with a singleton design pattern. The framework supports test case execution for various functionalities such as retrieving the second-highest price of products, extracting options from dropdown menus, and identifying broken links. It’s designed with Maven as the build tool and uses TestNG for configuration and test execution.
 
-Features
-Page Object Model (POM): Organized code structure to enhance readability and reusability.
-Singleton Framework: Ensures a single instance of classes, improving memory efficiency.
-Automated Functionalities:
-Retrieve the second-highest price from a list of products.
-Extract all options available in dropdown menus.
-Find and log broken links on the page.
-Properties File: Stores URLs and configurable data, loaded dynamically at runtime.
-Extent Reporting: Detailed test execution reports.
-Jenkins Integration: Continuous Integration setup for automated test execution on code commits.
+## Features
 
-Prerequisites
+- **Page Object Model (POM)**: Organized code structure to enhance readability and reusability.
+- **Singleton Framework**: Ensures a single instance of classes, improving memory efficiency.
+- **Automated Functionalities**:
+  - Retrieve the second-highest price from a list of products.
+  - Extract all options available in dropdown menus.
+  - Find and log broken links on the page.
+- **Properties File**: Stores URLs and configurable data, loaded dynamically at runtime.
+- **Extent Reporting**: Detailed test execution reports.
+- **Jenkins Integration**: Continuous Integration setup for automated test execution on code commits.
+
+## Prerequisites
 Java 17
 Maven
 TestNG (plugin required if running tests in an IDE)
@@ -20,12 +22,13 @@ Setup Instructions
 1. Clone the Repository
 bash
 Copy code
-git clone [https://github.com/eshravani/SeleniumPOMSingleTon.git](https://github.com/eshravani/SeleniumPOMSingleTon.git)
+git clone https://github.com/yourusername/amazon-automation.git
 2. Navigate to Project Directory
 bash
 Copy code
 cd amazon-automation
 3. Install Dependencies
+bash
 Copy code
 mvn clean install
 4. Configuration
