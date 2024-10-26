@@ -10,7 +10,7 @@ public class HomePage {
     private WebDriver driver;
 
     public HomePage() {
-        this.driver = DriverInit.getCurrentDriver();
+       driver = DriverInit.getCurrentDriver();
         PageFactory.initElements(driver, this);
     }
 

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite" parallel="methods" verbose="3">
+    <parameter name="browser" value="chrome" />
+    <!--<parameter name="url" value="https://letzautomate.github.io/samples/eCommerce.html" />-->
+    <test name="AmazonTests">
+        <classes>
+            <class name="TestClasses.SouthWestAirLines" />
+        </classes>
+    </test>
+</suite>

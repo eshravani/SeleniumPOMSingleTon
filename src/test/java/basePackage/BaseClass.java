@@ -1,41 +1,56 @@
 package basePackage;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
 import uitlities.ConfigProperties;
+import uitlities.Data;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
+import java.util.Properties;
 
 
 public class BaseClass {
-    private static WebDriver driver=null;
+    private static WebDriver driver;
+    private Properties prop;
+    FileInputStream fis;
 
-    @Parameters("browser")
-    @BeforeClass
-    public void setUp(String browserName){
-        String url =  ConfigProperties.getPropInstance("URL");
-        switch (browserName) {
-            case "chrome" -> driver = new ChromeDriver();
-            case "edge" -> driver = new EdgeDriver();
-            default -> System.out.println("please pass correct browser name");
+
+    private void loadProperties() {
+        String appName = System.getenv("appName");
+        prop = new Properties();
+        try (FileInputStream fis = new FileInputStream("resources\\" + appName + ".properties")) {
+            prop.load(fis);
+        } catch (IOException e) {
+            System.err.println("Error loading properties file for " + appName + ": " + e.getMessage());
         }
+    }
+
+    @BeforeMethod
+    public void setUp() {
+        loadProperties();
+        // Initialize driver using ThreadLocal instance from DriverInit
+        WebDriver driver = DriverInit.getInstance().getDriver();
+        // Load application URL from the properties file
+        String url = prop.getProperty("URL");
         driver.get(url);
-        DriverInit.getInstance().setDriver(driver);
+        // Set browser configurations
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-
-    @AfterClass
+    @AfterMethod
     public void quitBrowser() {
-        driver = DriverInit.getCurrentDriver();
-        if(driver!=null) {
-            DriverInit.getCurrentDriver().quit();
-        }
-        DriverInit.webdriver.remove();
+        DriverInit.getInstance().quitBrowser();
     }
 }

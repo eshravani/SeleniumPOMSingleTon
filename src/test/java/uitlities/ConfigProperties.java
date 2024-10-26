@@ -13,7 +13,7 @@ public class ConfigProperties {
     {
 
         String envName = System.getenv("env");
-        String filePath = "src/resources/";
+        String filePath = "resources/";
         try {
             switch(envName.toLowerCase())
             {

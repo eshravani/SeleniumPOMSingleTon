@@ -32,10 +32,10 @@ public class AmazonHomePage extends BasePage {
 
 
     public AmazonHomePage() {
-        this.driver = DriverInit.getCurrentDriver();
-        if (this.driver == null) {
+       driver = DriverInit.getCurrentDriver();
+        /*if (this.driver == null) {
             throw new IllegalStateException("Driver is not initialized. Please check the setup.");
-        }
+        }*/
         PageFactory.initElements(driver, this);
     }
 
