@@ -8,13 +8,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import uitlities.ConfigProperties;
-import uitlities.Data;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 
@@ -37,11 +33,10 @@ public class BaseClass {
 
     @BeforeMethod
     public void setUp() {
-        loadProperties();
+       String url= ConfigProperties.getPropInstance("URL");
         // Initialize driver using ThreadLocal instance from DriverInit
         WebDriver driver = DriverInit.getInstance().getDriver();
         // Load application URL from the properties file
-        String url = prop.getProperty("URL");
         driver.get(url);
         // Set browser configurations
         driver.manage().deleteAllCookies();

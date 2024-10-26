@@ -21,9 +21,7 @@ public class DriverInit {
     private static ThreadLocal<WebDriver> webdriver = new ThreadLocal<>();
 
     public void initDriver()  {
-        //String url = ConfigProperties.getPropInstance("URL");
-        String url = Data.url;
-        String browserName = Data.browserName;
+        String browserName = System.getenv("browserName");
         DesiredCapabilities cap = new DesiredCapabilities();
         switch (Data.envType) {
             case "local" -> {

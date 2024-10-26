@@ -13,11 +13,12 @@ public class ConfigProperties {
     {
 
         String envName = System.getenv("env");
-        String filePath = "resources/";
+        String appName=System.getenv("appName");
+        String filePath = "resources/"+appName;
         try {
             switch(envName.toLowerCase())
             {
-                case "test"-> filePath+="data.properties";
+                case "test"-> filePath+="test.properties";
                 case "prod"-> filePath+="prod.properties";
                 case "dev"-> filePath+="dev.properties";
                 default->
