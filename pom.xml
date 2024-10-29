@@ -12,6 +12,12 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <suiteFile>testng.xml</suiteFile>
+        <envType>local</envType>
+        <envName>test</envName>
+        <appName>amazon</appName>
+        <browserName>chrome</browserName>
+
     </properties>
     <build>
         <pluginManagement>
@@ -22,12 +28,13 @@
                     <version>3.5.0</version>
                     <configuration>
                         <environmentVariables>
-                            <envName>test</envName>
-                            <appName>amazon</appName>
-                            <browserName>chrome</browserName>
+                            <envType>${envType}</envType>
+                            <envName>${envName}</envName>
+                            <appName>${appName}</appName>
+                            <browserName>${browserName}</browserName>
                         </environmentVariables>
                         <suiteXmlFiles>
-                            <suiteXmlFile>resources/testngxmls/testng.xml</suiteXmlFile>
+                            <suiteXmlFile>resources/testngxmls/${suiteFile}</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
