@@ -21,9 +21,10 @@ public class DriverInit {
     private static ThreadLocal<WebDriver> webdriver = new ThreadLocal<>();
 
     public void initDriver()  {
-        String browserName = System.getenv("browserName");
+        String browserName = System.getProperty("browserName");
         DesiredCapabilities cap = new DesiredCapabilities();
-        switch (Data.envType) {
+        String envType=System.getProperty("envType");
+        switch (envType) {
             case "local" -> {
                 switch (browserName) {
                     case "chrome" -> webdriver.set(new ChromeDriver());

@@ -9,18 +9,24 @@ public class ConfigProperties {
     private static ConfigProperties configInstance = null;
     private static Properties propInstance = null;
 
+
     private ConfigProperties()
     {
-
-        String envName = System.getenv("env");
-        String appName=System.getenv("appName");
-        String filePath = "resources/"+appName;
+        String envName = System.getProperty("envName");
+        String appName = System.getProperty("appName");
+       // String filePath = "src\\resources\\" + appName + "\\" + appName + "_" + envName + ".properties";
+       // envName = System.getProperty("envName");
+       //appName=System.getProperty("appName");
+        System.out.println(envName);
+        System.out.println(appName);
+        String filePath = "resources/"+appName+envName+".properties";
+        System.out.println(filePath);
         try {
             switch(envName.toLowerCase())
             {
-                case "test"-> filePath+="test.properties";
-                case "prod"-> filePath+="prod.properties";
-                case "dev"-> filePath+="dev.properties";
+                case "test"-> filePath="resources/"+appName+envName+".properties";
+                case "prod"-> filePath="resources/"+appName+envName+".properties";
+                case "dev"-> filePath+="resources/"+appName+envName+".properties";
                 default->
                     throw new IllegalArgumentException("Unknown environment: " + envName);
             }
@@ -40,12 +46,15 @@ public class ConfigProperties {
     {
         if( configInstance==null)
         {
+            String envName=System.getProperty("envName","test");
+            String appName=System.getProperty("appName","amazon");
+            String browserName=System.getProperty("browserName","chrome");
             configInstance =new ConfigProperties();
         }
         return configInstance;
     }
 
-    public static String getPropInstance(String property)
+    public static String getPropValue(String property)
     {
         return getConfigInstance().propInstance.getProperty(property);
     }
