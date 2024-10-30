@@ -6,17 +6,19 @@ import pages.SouthWestAirLinesPage;
 
 public class SouthWestAirLines extends BaseClass {
 
-    SouthWestAirLinesPage sw=new SouthWestAirLinesPage();
 
     @Test
     public void searchFlights() throws InterruptedException {
+        SouthWestAirLinesPage sw=new SouthWestAirLinesPage();
         System.out.println("I am on southwest airlines");
         sw.searchFlightsOneWay();
 
     }
     @Test
     public void searchFlightsRoundTrip() throws InterruptedException {
+        SouthWestAirLinesPage sw=new SouthWestAirLinesPage();
         System.out.println("I am on southwest airlines");
+        sw.searchFlightsOneWay();
         sw.searchFlightsRoundTrip();
 
     }

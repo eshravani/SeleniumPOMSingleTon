@@ -19,17 +19,22 @@ public class ConfigProperties {
        //appName=System.getProperty("appName");
         System.out.println(envName);
         System.out.println(appName);
-        String filePath = "resources/"+appName+envName+".properties";
+        String filePath = "src/test/resources/propertyfiles/"+appName+"/"+appName+"_"+envName+".properties";
         System.out.println(filePath);
         try {
-            switch(envName.toLowerCase())
+           /* switch(envName.toLowerCase())
             {
-                case "test"-> filePath="resources/"+appName+envName+".properties";
+                case "test"-> {
+                    if(filePath.equalsIgnoreCase("test"))
+                    {
+
+                    }
+                }//="src/test/resources/"+appName+envName+".properties";
                 case "prod"-> filePath="resources/"+appName+envName+".properties";
                 case "dev"-> filePath+="resources/"+appName+envName+".properties";
                 default->
                     throw new IllegalArgumentException("Unknown environment: " + envName);
-            }
+            }*/
             if(propInstance==null){
                 propInstance = new Properties();
             FileInputStream fis = new FileInputStream(filePath);
@@ -56,6 +61,7 @@ public class ConfigProperties {
 
     public static String getPropValue(String property)
     {
-        return getConfigInstance().propInstance.getProperty(property);
+        getConfigInstance();
+        return propInstance.getProperty(property);
     }
 }
